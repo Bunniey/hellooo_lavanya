@@ -325,13 +325,13 @@ def submit():
     token = str(uuid.uuid4())
     session[f"responses_{token}"] = rows
     session["latest_token"] = token
+    with open("latest_token.txt", "w", encoding="utf-8") as f:
+        f.write(token)
     return redirect(url_for("index"))
-   
-with open("latest_token.txt", "w", encoding="utf-8") as f:
-    f.write(token)
+
     
-    @app.route("/latest-token")
-    def latest_token():
+@app.route("/latest-token")
+def latest_token():
     try:
         with open("latest_token.txt", "r", encoding="utf-8") as f:
             token = f.read().strip()
