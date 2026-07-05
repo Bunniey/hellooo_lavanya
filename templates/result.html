@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card active hero">
+  <div class="badge">Mission complete 💖</div>
+  <img class="hero-img" src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" alt="sparkle gif">
+  <h1>Bye cutie 👋</h1>
+  <p>Thanks for sharing a bit of yourself.</p>
+
+  <div class="result-box">
+    <h3>Your responses</h3>
+    <table class="result-table">
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Answer</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+        <tr>
+          <td>{{ row.question }}</td>
+          <td>{{ row.answer }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

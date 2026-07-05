@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST" action="/result" class="wizard">
+  <section class="card active hero">
+    <div class="badge">For the cutest cabin crew queen 👑✈️</div>
+    <img class="hero-img" src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/0d6905ff529af1004cb8ad2582e2c320578df95f.jpg" alt="Airline crew illustration">
+    <h1>Hi, Lavanya ✨💖</h1>
+    <p class="lead">A tiny happy quiz made just for you — full of hearts, smiles, and a little airplane energy.</p>
+    <button type="button" class="btn primary next-step">Start 🌷</button>
+  </section>
+
+  <section class="card">
+    <div class="section-top">💫 About you</div>
+    <h2>I know you're Pahadi and from South Delhi, but what would you like to be called as?</h2>
+    <div class="choice-row">
+      <label class="option-pill"><input type="radio" name="identity" value="South Delhi"><span>South Delhi</span></label>
+      <label class="option-pill"><input type="radio" name="identity" value="Pahadi"><span>Pahadi</span></label>
+    </div>
+    <img class="gif-line" src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif" alt="applause gif">
+    <button type="button" class="btn primary next-step">Next ➡️</button>
+  </section>
+
+  <section class="card">
+    <div class="section-top">🌸 Cute check</div>
+    <h2>OK COOL <span class="chip">friend</span>!</h2>
+    <p>That sounds lovely.</p>
+    <img class="gif-line" src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" alt="sparkle gif">
+    <button type="button" class="btn primary next-step">Continue 💖</button>
+  </section>
+
+  <section class="card">
+    <div class="section-top">🍽️ Food vibes</div>
+    <h2>Let's know about you more now!!</h2>
+    <h3>I like to eat...</h3>
+    <p class="subq">1) On normal days?</p>
+    <div class="choice-col">
+      <label class="option-pill"><input type="radio" name="normalFood" value="Healthy-diet food"><span>Healthy-diet food</span></label>
+      <label class="option-pill"><input type="radio" name="normalFood" value="Healthy-homecooked food"><span>Healthy-homecooked food</span></label>
+      <label class="option-pill"><input type="radio" name="normalFood" value="Un-healthy....uff"><span>Un-healthy....uff</span></label>
+    </div>
+    <p class="subq">2) I like to spice up my special days from?</p>
+    <div class="choice-col">
+      <label class="option-pill"><input type="radio" name="specialFood" value="Eating my fav street food"><span>Eating my fav street food</span></label>
+      <label class="option-pill"><input type="radio" name="specialFood" value="Cooking my cheat meal...lol"><span>Cooking my cheat meal...lol</span></label>
+      <label class="option-pill"><input type="radio" name="specialFood" value="Kabhi kuch kabhi kuch, depending on my mood"><span>Kabhi kuch kabhi kuch, depending on my mood</span></label>
+    </div>
+    <img class="gif-line" src="https://media.giphy.com/media/l0HlQ7LRalQqdWfao/giphy.gif" alt="clapping gif">
+    <button type="button" class="btn primary next-step">Next 🌈</button>
+  </section>
+
+  <section class="card">
+    <div class="section-top">🍜 Food forever</div>
+    <h2>If I ask you what food you could eat for the rest of your life, then what would it be?</h2>
+    <textarea name="lifelongFood" placeholder="Write your answer here..."></textarea>
+    <button type="button" class="btn primary next-step">Next ✨</button>
+  </section>
+
+  <section class="card">
+    <div class="section-top">🥗 Food style</div>
+    <h2>FOOD Department se last question.....</h2>
+    <div class="choice-col">
+      <label class="option-pill"><input type="radio" name="foodType" value="I am a foodie"><span>I am a foodie</span></label>
+      <label class="option-pill"><input type="radio" name="foodType" value="I'm health conscious more so try to keep a balance"><span>I'm health conscious more so try to keep a balance</span></label>
+      <label class="option-pill"><input type="radio" name="foodType" value="I'm not all foodie"><span>I'm not all foodie</span></label>
+    </div>
+    <textarea name="foodNote" placeholder="If you want to express more about food, write here..."></textarea>
+    <img class="gif-line" src="https://media.giphy.com/media/3oz8xAFtqoOUUrsh7W/giphy.gif" alt="celebration gif">
+    <button type="button" class="btn primary next-step">Next 🎀</button>
+  </section>
+
+  <section class="card">
+    <div class="section-top">🌷 Flowers</div>
+    <h2>I like..... my fav flower</h2>
+    <input name="flower" type="text" placeholder="Rose, lily, sunflower...">
+    <button type="button" class="btn primary next-step">Next 💐</button>
+  </section>
+
+  <section class="card">
+    <div class="section-top">🎶 Music mood</div>
+    <h2>Now let's know about music taste!!</h2>
+    <p class="subq">Pick your fav genre</p>
+    <div class="choice-grid">
+      <label class="option-pill"><input type="radio" name="genre" value="Pop"><span>Pop</span></label>
+      <label class="option-pill"><input type="radio" name="genre" value="Rock"><span>Rock</span></label>
+      <label class="option-pill"><input type="radio" name="genre" value="Hip-Hop / Rap"><span>Hip-Hop / Rap</span></label>
+      <label class="option-pill"><input type="radio" name="genre" value="R&B"><span>R&B</span></label>
+      <label class="option-pill"><input type="radio" name="genre" value="Indie"><span>Indie</span></label>
+      <label class="option-pill"><input type="radio" name="genre" value="Classical"><span>Classical</span></label>
+      <label class="option-pill"><input type="radio" name="genre" value="Jazz"><span>Jazz</span></label>
+      <label class="option-pill"><input type="radio" name="genre" value="EDM"><span>EDM</span></label>
+      <label class="option-pill"><input type="radio" name="genre" value="Punjabi"><span>Punjabi</span></label>
+      <label class="option-pill"><input type="radio" name="genre" value="Bollywood"><span>Bollywood</span></label>
+      <label class="option-pill"><input type="radio" name="genre" value="K-pop"><span>K-pop</span></label>
+      <label class="option-pill"><input type="radio" name="genre" value="Any good vibe"><span>Any good vibe</span></label>
+    </div>
+    <img class="gif-line" src="https://media.giphy.com/media/ASd0Ukj0y3qMM/giphy.gif" alt="music gif">
+    <button type="button" class="btn primary next-step">Next 🎵</button>
+  </section>
+
+  <section class="card">
+    <div class="section-top">🎤 Artist + Spotify</div>
+    <h2>My fav music artist...</h2>
+    <input name="artist" type="text" placeholder="Type your favourite artist...">
+    <h3 class="mini">Now, I would like to know your spotify account, tho i don't hv a premium lol but still i would like to know it maybe any day we jammed.</h3>
+    <input name="spotify" type="text" placeholder="Spotify username or link...">
+    <button type="button" class="btn primary next-step">Next 💞</button>
+  </section>
+
+  <section class="card">
+    <div class="section-top">☕ Warm drink</div>
+    <h2>I'm a coffee person or a chai person?</h2>
+    <div class="choice-row">
+      <label class="option-pill"><input type="radio" name="drink" value="Coffee"><span>☕ Coffee</span></label>
+      <label class="option-pill"><input type="radio" name="drink" value="Chai"><span>🫖 Chai</span></label>
+    </div>
+    <img class="gif-line" src="https://media.giphy.com/media/xUPGcEliCc7bETyfO8/giphy.gif" alt="coffee gif">
+    <button type="button" class="btn primary next-step">Next 🌼</button>
+  </section>
+
+  <section class="card">
+    <div class="section-top">🎀 Hobbies</div>
+    <h2>Let's know about your hobbies now....</h2>
+    <div class="choice-grid">
+      <label class="option-pill"><input type="radio" name="hobbies" value="I listen music"><span>I listen music</span></label>
+      <label class="option-pill"><input type="radio" name="hobbies" value="I dance"><span>I dance</span></label>
+      <label class="option-pill"><input type="radio" name="hobbies" value="I do random"><span>I do random</span></label>
+      <label class="option-pill"><input type="radio" name="hobbies" value="I cook"><span>I cook</span></label>
+      <label class="option-pill"><input type="radio" name="hobbies" value="I explore"><span>I explore</span></label>
+      <label class="option-pill"><input type="radio" name="hobbies" value="I play sports/go to the gym"><span>I play sports/go to the gym</span></label>
+      <label class="option-pill"><input type="radio" name="hobbies" value="Other"><span>Other</span></label>
+    </div>
+    <input name="hobbyOther" type="text" placeholder="If other, mention it here...">
+    <button type="button" class="btn primary next-step">Next ✈️</button>
+  </section>
+
+  <section class="card">
+    <div class="section-top">📱 Scroll mode</div>
+    <h2>I like to scroll...</h2>
+    <div class="choice-grid">
+      <label class="option-pill"><input type="radio" name="scroll" value="music"><span>music</span></label>
+      <label class="option-pill"><input type="radio" name="scroll" value="arts"><span>arts</span></label>
+      <label class="option-pill"><input type="radio" name="scroll" value="professional"><span>professional</span></label>
+      <label class="option-pill"><input type="radio" name="scroll" value="news"><span>news</span></label>
+      <label class="option-pill"><input type="radio" name="scroll" value="political"><span>political</span></label>
+      <label class="option-pill"><input type="radio" name="scroll" value="funny"><span>funny</span></label>
+      <label class="option-pill"><input type="radio" name="scroll" value="kuch bhi bss dekhne se mtlb 😄"><span>kuch bhi bss dekhne se mtlb 😄</span></label>
+    </div>
+    <img class="gif-line" src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="scrolling gif">
+    <button type="button" class="btn primary next-step">Next 🌸</button>
+  </section>
+
+  <section class="card">
+    <div class="section-top">💌 Thank you</div>
+    <h2>Thank you for staying with me...</h2>
+    <p class="spark">I GOT U, LAVANYA!!</p>
+    <p>You have a great taste!!</p>
+    <img class="gif-line" src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif" alt="applause gif">
+    <button type="button" class="btn primary next-step">Continue 🫶</button>
+  </section>
+
+  <section class="card">
+    <div class="section-top">⭐ Feedback</div>
+    <h2>How did you like this?</h2>
+    <div class="choice-row">
+      <label class="option-pill"><input type="radio" name="feedback" value="I loved it!"><span>I loved it!</span></label>
+      <label class="option-pill"><input type="radio" name="feedback" value="I hated it"><span>I hated it</span></label>
+      <label class="option-pill"><input type="radio" name="feedback" value="Theek tha...ok!"><span>Theek tha...ok!</span></label>
+    </div>
+    <textarea name="feedbackNote" placeholder="Tell me your honest feelings..."></textarea>
+    <button type="submit" class="btn primary">Finish 🎉</button>
+  </section>
+</form>
+{% endblock %}
