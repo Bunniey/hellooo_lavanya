@@ -1,34 +1,12 @@
-import json  # Make sure to add this import at the very top of your app.py
-
-@app.route("/submit", methods=["POST"])
-def submit():
-    data = request.form.to_dict(flat=True)
-    rows = []
-    for key, question in QUESTIONS.items():
-        value = data.get(key, "").strip()
-        if value:
-            rows.append({"question": question, "answer": value})
-
-    token = str(uuid.uuid4())
-    session[f"responses_{token}"] = rows
-    session["latest_token"] = token
-    
-    # 1. Saves the token for your tracking
-    with open("latest_token.txt", "w", encoding="utf-8") as f:
-        f.write(token)
-        
-    # 2. Saves the actual answers to a file so YOU can read them from your device!
-    with open(f"responses_{token}.json", "w", encoding="utf-8") as f:
-        json.dump(rows, f, ensure_ascii=False, indent=4)
-        
-    return redirect(url_for("index"))
-
 from flask import Flask, render_template_string, request, session, redirect, url_for
 import uuid
+import json  # Added for saving answers
 
+# 1. ALWAYS DEFINE APP FIRST BEFORE ANY ROUTES!
 app = Flask(__name__)
 app.secret_key = "lavanya-quiz-secret"
 
+# 2. YOUR DATA AND TEMPLATES
 QUESTIONS = {
     "identity": "I know you're Pahadi and from South Delhi, but what would you like to be called as?",
     "normalFood": "I like to eat on normal days?",
@@ -334,6 +312,7 @@ RESULT_HTML = r'''
 </html>
 '''
 
+# 3. NOW DEFINE THE ROUTES IN SEQUENCE
 @app.route("/", methods=["GET"])
 def index():
     return render_template_string(INDEX_HTML)
@@ -350,11 +329,17 @@ def submit():
     token = str(uuid.uuid4())
     session[f"responses_{token}"] = rows
     session["latest_token"] = token
+    
+    # Write the token to tracking file
     with open("latest_token.txt", "w", encoding="utf-8") as f:
         f.write(token)
+        
+    # Write responses data to json file
+    with open(f"responses_{token}.json", "w", encoding="utf-8") as f:
+        json.dump(rows, f, ensure_ascii=False, indent=4)
+        
     return redirect(url_for("index"))
 
-    
 @app.route("/latest-token")
 def latest_token():
     try:
@@ -367,15 +352,14 @@ def latest_token():
 @app.route("/secret-responses/<token>")
 def secret_responses(token):
     try:
-        # Read the saved answers file matching this specific token
         with open(f"responses_{token}.json", "r", encoding="utf-8") as f:
             rows = json.load(f)
     except FileNotFoundError:
-        # If the file doesn't exist, show a clean error message instead of crashing
         return "<h3>No responses found for this token. Make sure the quiz was submitted!</h3>", 404
         
-    # Render the RESULT_HTML table with the loaded rows data
     return render_template_string(RESULT_HTML, rows=rows)
 
+
+# 4. RUN SYSTEM AT THE VERY END
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
