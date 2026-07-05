@@ -329,7 +329,8 @@ def submit():
     f.write(token)
     return redirect(url_for("index"))
     @app.route("/latest-token")
-def latest_token():
+
+    def latest_token():
     try:
         with open("latest_token.txt", "r", encoding="utf-8") as f:
             token = f.read().strip()
@@ -337,10 +338,6 @@ def latest_token():
         token = "No token yet"
     return f"Latest token: {token}"
 
-@app.route("/secret-responses/<token>", methods=["GET"])
-def secret_responses(token):
-    rows = session.get(f"responses_{token}", [])
-    return render_template_string(RESULT_HTML, rows=rows)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
